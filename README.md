@@ -2,32 +2,40 @@
 
 Automatic get free ebook from packpub to your account
 
+## How to Use with Docker
+
+```sh
+# Edit {USER} and {PASSWORD} in config.txt first !!!
+
+# build docker
+$ docker build -t pybot-packtpub .
+
+# run
+$ docker run --rm pybot-packtpub
+```
+
+
 ## How to Use
 
 ```sh
-# Edit {USER} and {PASSWORD} in getebook.txt first !!!
-$ pybot
+# Edit {USER} and {PASSWORD} in config.txt first !!!
+
+$ pybot getebook.txt
 ```
 
-or
-
-```sh
-$ pybot --variable USER:<user> --variable PASSWORD:<password> getebook.txt
-```
-
-## Requiremnet
+### Requiremnet
 - python
+- xvfb
+- firefox
 - robotframework
-- robotframework-selenium
-- phatomjs
+- robotframework-selenium2library
+- robotframework-xvfb
 
+### Install
 ```sh
 # ubuntu
-$ apt-get install -y phantonjs
-
-# osx
-$ brew install phantomjs
-
-$ pip install robotframework
-$ pip install robotframework-selenium2library
+$ apt-get update
+$ apt-get install -y python-dev python-pip
+$ apt-get install -y xvfb firefox
+$ pip install -r requirement.txt
 ```
