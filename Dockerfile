@@ -1,8 +1,10 @@
-FROM ubuntu:latest
+FROM python:2
 MAINTAINER ibotdotout
 
-RUN apt-get -y update
-RUN apt-get install -y python-pip python-dev gcc phantomjs
+# phatomjs drvier to selenium testing
+RUN echo "deb http://http.us.debian.org/debian unstable main non-free contrib" >> /etc/apt/sources.list  && apt-get update
+RUN apt-get -t unstable install -y phantomjs
+
 RUN pip install robotframework
 RUN pip install robotframework-selenium2library
 
