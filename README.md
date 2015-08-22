@@ -6,8 +6,13 @@ Automatic get free ebook from packpub to your account
 
 ```sh
 # Edit {USER} and {PASSWORD} in getebook.txt first !!!
+$ pybot
+```
 
-$ pybot getebook.txt
+or
+
+```sh
+$ pybot --variable USER:<user> --variable PASSWORD:<password> getbook.txt
 ```
 
 ## Requiremnet
