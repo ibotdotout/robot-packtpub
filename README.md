@@ -1,6 +1,6 @@
-# Pybot-Packpub
+# Pybot-Packtpub
 
-Automatic get free ebook from packpub to your account
+Automatic get free ebook from packtpub to your account
 
 ## How to Use with Docker
 
