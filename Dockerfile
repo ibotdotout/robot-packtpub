@@ -1,14 +1,12 @@
-FROM python:2
+FROM ubuntu
 MAINTAINER ibotdotout
 
-# phatomjs drvier to selenium testing
-RUN echo "deb http://http.us.debian.org/debian unstable main non-free contrib" >> /etc/apt/sources.list  && apt-get update
-RUN apt-get -t unstable install -y phantomjs
+RUN apt-get -y update
+RUN apt-get -y install python-dev python-pip
+RUN apt-get -y install xvfb firefox
 
-RUN pip install robotframework
-RUN pip install robotframework-selenium2library
-
+ADD . /app
 WORKDIR /app
-ADD getebook.txt /app
+RUN pip install -r requirements.txt
 
-ENTRYPOINT pybot getebook.txt
+CMD ["pybot", "getebook.txt"]
