@@ -23,7 +23,7 @@ $ docker run --rm pybot-packtpub
 $ pybot getebook.txt
 ```
 
-### Requiremnet
+### Requirements
 - python
 - xvfb
 - firefox
@@ -31,7 +31,7 @@ $ pybot getebook.txt
 - robotframework-selenium2library
 - robotframework-xvfb
 
-### Install
+### Install Dependentcies
 ```sh
 # ubuntu
 $ apt-get update
