@@ -12,7 +12,7 @@ $ pybot
 or
 
 ```sh
-$ pybot --variable USER:<user> --variable PASSWORD:<password> getbook.txt
+$ pybot --variable USER:<user> --variable PASSWORD:<password> getebook.txt
 ```
 
 ## Requiremnet
@@ -21,6 +21,13 @@ $ pybot --variable USER:<user> --variable PASSWORD:<password> getbook.txt
 - robotframework-selenium
 - phatomjs
 
-or
+```sh
+# ubuntu
+$ apt-get install -y phantonjs
 
-- docker
+# osx
+$ brew install phantomjs
+
+$ pip install robotframework
+$ pip install robotframework-selenium2library
+```
