@@ -1,0 +1,26 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+${URL}            https://www.packtpub.com/packt/offers/free-learning
+#${BROWSER}        chrome
+${BROWSER}        phantomjs
+${DELAY}          0
+
+${USER}          your@email.com
+${PASSWORD}      password
+
+*** Test Cases ***
+Get Free Ebook
+    Open Browser    ${URL}    ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed    ${DELAY}
+    Click Button    xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[4]/div[2]/a/div/input
+    Input Text    xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[1]/div/input    ${USER}
+    Input Text    xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[2]/div/input    ${PASSWORD}
+    Click Button     xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[3]/input
+    Wait Until Page Contains    My Account
+    Click Button    xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[4]/div[2]/a/div/input
+    Wait Until Page Contains    My eBooks
+    Location Should Be    https://www.packtpub.com/account/my-ebooks
+    [Teardown]    Close Browser
