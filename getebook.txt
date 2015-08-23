@@ -29,7 +29,6 @@ Get Free Ebook
     Claim Book
     Location Should Be    ${END URL}
     Page Should Contain    ${book title}
-    [Teardown]    Close Browser
 
 
 *** Keywords ***
