@@ -12,7 +12,6 @@ env:
 
 before_install:
   - docker build -t robot-packtpub .
-  - docker run -e USER=$USER -e PASS=$PASS --rm robot-packtpub /bin/sh -c "pybot --variable USER:$USER --variable PASSWORD:$PASS getebook.txt"
 
 script:
-  - pybot -d /tmp --variable USER:$USER --variable PASSWORD:$PASS getebook.txt
+  - docker run -e USER=$USER -e PASS=$PASS --rm robot-packtpub /bin/sh -c "pybot --variable USER:$USER --variable PASSWORD:$PASS getebook.txt"
