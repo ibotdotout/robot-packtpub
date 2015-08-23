@@ -1,15 +1,18 @@
+sudo: required
+
 language: python
 
-python:
-  - '2.7'
-
-install:
-  - pip install -r requirements.txt
+services:
+    - docker
 
 env:
   global:
     - secure: dCuXaswcjOiDZ2/WySa/AIRrvu2IyHMf3Wy/RSvqPueerFpp/lU42R1yTEC2f/qZi43/E53Cf7q9NeR70L/2isKMj76tQNdOVopLxqM1f/EkfIyazlx+kiz3hibd64z7NeM+djKrFlUQFXHI5gwpcx4ZVeTCMUyDNS3jbwwqy80puzi4H5IzerPN3lPLVIeP7VYnG8emfCCHaBdf4ug6pj4UwUh22bhImTpE1mYJTDDAVBJOCUzyMPj/LYkDe54ZJgSfr2w0bL1VACV1LbnLJAtbpJrZSwuFie5dQgEcWpkjMPxUY/rDGdEEJTb8lyazPKxjHFWFeKKXqsJbiyy5aStvs+jgV4bnGW30qu6sRecMgdfw1YDKLwwTkUNsZZchuLAzGtTRLny5QcV7CoTMZsuPCCYqR2wJy7wZGe49DpTYu6BTnT9IwzIvW3Cgt7h4mz163onilIWzqnR10eerulTQFAEFxrqbLbtWtmmvnjkayfC2gKVCN/ogi8MYiVd2F5Dh6GclPNPk4gDFHy+MoN2/fEll/fHJ0DxWvlYHXUaENFOS3wugDiknoyLRIfMNoERjxsvbfwthHx2OARnCKFOWf86/JnqZOW4HHjpPdSJQIKl0UhXl/zncz0s+UWibsPoDLdl8ViFcC0FNQ0aEbOYxH/6pDQsSQHG0e2yR8IU=
     - secure: Zx2VGYFBRCxrOWYIDyFmy7NWKbZ2kLAQafXwWLTJIbSiIlWdr1R4121XOX3NdJbu1uRJRES0D+XqbPviZFeqBc+Pypl6uvjBLJYIUNxz5W7MEQD5XepA2Mbiwgg4Uds6yEw70KOl6KCL97I1i+9KHuiwRzbWPX6+yY+BBsMXvPXuAWousudZBv3EmwD+PI/ExH29ZNXxwcnlOghnd4YLTxblZEekrZuF7noUSCcKfjC3eKJot2rcsuFDgdbbYePx7MNHtYYvlUno4qxlmn+AfVHTo3pGmZzQc7O2W0vvCeH2EG0WbbY+SkEBDb1GM5GnwlZ9w6SHKaIiY18VfbMAJInVqrpFk7x94ynvi1TmhD+Cxmd4CXmueOcr5R6WZ1baZca7NbbpMVMfj4EygCTZFv+obKjZWBwMvaO/UQoIYv3xZf/yG2S6LpluscpLZMQ/sDQuEROqHgZh5uHn5EW9pYzaJejpNPnx1Of7f5sh4ZvJv9SDbUDMKV0uqkCRu/ZiU+fe3e+hEdTSn1Ofjznhf1S9lUteU6MUycGl53MaIB7bneNdLPVTOWBnBszWG3Y8YK0MtzRo76JBGnbcipBXGKrEmsUHoPjMRSbi6I3QqEbm4Aa04d46s/+j2DRTwtgSVN6H7ObfW0ZaF9jW7TERJ4mNOqvH4g4mC126ekeyrv4=
+
+before_install:
+  - docker build -t robot-packtpub .
+  - docker run --rm robot-packtpub /bin/sh -c "- pybot  -d /tmp --variable USER:$USER --variable PASSWORD:$PASS getebook.txt"
 
 script:
   - pybot  -d /tmp --variable USER:$USER --variable PASSWORD:$PASS getebook.txt
