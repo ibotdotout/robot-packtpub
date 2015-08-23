@@ -1,6 +1,6 @@
-# Pybot-Packtpub
+# Robot-Packtpub
 
-Automatic get free ebook from packtpub to your account
+Robotframework script that get free ebook from packtpub to your account
 
 ## How to Use with Docker
 
@@ -8,10 +8,10 @@ Automatic get free ebook from packtpub to your account
 # Edit {USER} and {PASSWORD} in config.txt first !!!
 
 # build docker
-$ docker build -t pybot-packtpub .
+$ docker build -t robot-packtpub .
 
 # run
-$ docker run --rm pybot-packtpub
+$ docker run --rm robot-packtpub
 ```
 
 
