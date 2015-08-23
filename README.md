@@ -1,4 +1,5 @@
 # Robot-Packtpub
+[![Build Status](https://travis-ci.org/ibotdotout/robot-packtpub.svg?branch=master)](https://travis-ci.org/ibotdotout/robot-packtpub)
 
 Robotframework script that get free ebook from packtpub to your account
 
