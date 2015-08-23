@@ -49,7 +49,7 @@ Login
 
 Claim Book
     Click Button   ${CLAIM BUTTON}
-    Wait Until Page Contains    ${CLAIM DONE}
+    Wait Until Page Contains    ${CLAIM DONE}    10
 
 Get Book Title
     ${book title}=    Get Text    ${BOOK TITLE}
