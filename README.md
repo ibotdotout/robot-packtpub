@@ -31,7 +31,7 @@ $ pybot getebook.txt
 - robotframework-selenium2library
 - robotframework-xvfb
 
-### Install Dependentcies
+### Install Dependencies
 ```sh
 # ubuntu
 $ apt-get update
