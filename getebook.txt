@@ -7,7 +7,7 @@ Resource          config.txt
 ${HOME URL}        https://www.packtpub.com/packt/offers/free-learning
 ${END URL}         https://www.packtpub.com/account/my-ebooks
 
-${CLAIM BUTTON}    xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[4]/div[2]/a/div/input
+${CLAIM BUTTON}    xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[5]/div[2]/a/div/input
 ${LOGIN BUTTON}    xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[3]/input
 ${USER INPUT}      xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[1]/div/input
 ${PASS INPUT}      xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[2]/div/input
