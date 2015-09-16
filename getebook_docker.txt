@@ -4,8 +4,10 @@ Library           XvfbRobot
 Resource          config.txt
 Resource          keywords.txt
 
+*** Variables ***
+${BROWSER}        firefox
 
 *** Test Cases ***
 Get Free Ebook
-    Open XVFB Browser    ${HOME URL}
+    Open XVFB Browser    ${HOME URL}    ${BROWSER}
     Get Ebook
