@@ -6,7 +6,8 @@ Robotframework script that get free ebook from packtpub to your account
 ## How to Use with Docker
 
 ```sh
-# Edit {USER} and {PASSWORD} in config.txt first !!!
+# Rename config.txt.sample to config.txt and
+# Edit {USER} and {PASSWORD} first !!!
 
 # build docker
 $ docker build -t robot-packtpub .
@@ -19,7 +20,8 @@ $ docker run --rm robot-packtpub
 ## How to Use
 
 ```sh
-# Edit {USER} and {PASSWORD} in config.txt first !!!
+# Rename config.txt.sample to config.txt and
+# Edit {USER} and {PASSWORD} first !!!
 
 $ pybot getebook.txt
 ```
