@@ -1,0 +1,56 @@
+*** Variables ***
+${HOME URL}        https://www.packtpub.com/packt/offers/free-learning
+${END URL}         https://www.packtpub.com/account/my-ebooks
+
+${CLAIM BUTTON}    xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[4]/div[2]/a/div/input
+${CLAIM BUTTON 2}    xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[5]/div[2]/a/div/input
+${LOGIN BUTTON}    xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[3]/input
+${USER INPUT}      xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[1]/div/input
+${PASS INPUT}      xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[2]/div/input
+${BOOK TITLE}      xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[2]/h2
+
+${LOGIN DONE}      My Account
+${CLAIM DONE}      My eBooks
+
+${WIDTH}           1920
+${HIEGHT}          1080
+
+*** Keywords ***
+Open Normal Browser
+    [Arguments]    ${url}    ${browser}
+    Open Browser    ${url}    ${browser}
+    Maximize Browser Window
+
+Open XVFB Browser
+    [Arguments]    ${url}    ${browser}
+    Start Virtual Display    ${WIDTH}   ${HIEGHT}
+    Open Browser    ${url}
+    Set Window Size    ${WIDTH}    ${HIEGHT}
+
+Login
+    [Arguments]    ${user}    ${pass}
+    Click Claim Book
+    Input Text    ${USER INPUT}     ${user}
+    Input Text    ${PASS INPUT}     ${pass}
+    Click Button    ${LOGIN BUTTON}
+    Wait Until Page Contains    ${LOGIN DONE}
+
+Click Claim Book
+    ${status}    ${value}=     Run Keyword And Ignore Error    Click Button   ${CLAIM BUTTON}
+    Run Keyword If    '${status}'=='FAIL'    Click Button     ${CLAIM BUTTON 2}
+
+Claim Book
+    Click Claim Book
+    Wait Until Page Contains    ${CLAIM DONE}
+
+Get Book Title
+    ${book title}=    Get Text    ${BOOK TITLE}
+    [return]    ${book title}
+
+Get Ebook
+    Location Should Be   ${HOME URL}
+    Login     ${USER}     ${PASSWORD}
+    ${book title}=     Get Book Title
+    Claim Book
+    Location Should Be    ${END URL}
+    Page Should Contain    ${book title}
