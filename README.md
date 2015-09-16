@@ -26,17 +26,33 @@ $ pybot getebook.txt
 
 ### Requirements
 - python
-- xvfb
-- firefox
 - robotframework
 - robotframework-selenium2library
+
+extend for native host:
+- phantomjs (not work well on docker)
+
+extend for docker:
+- xvfb
+- firefox
 - robotframework-xvfb
 
 ### Install Dependencies
+
+Ubuntu:
 ```sh
 # ubuntu
 $ apt-get update
 $ apt-get install -y python-dev python-pip
-$ apt-get install -y xvfb firefox
+$ apt-get install -y phantomjs
+$ pip install -r requirement.txt
+```
+
+
+OSX:
+```sh
+$ brew update
+$ brew install python
+$ brew install phantomjs
 $ pip install -r requirement.txt
 ```
