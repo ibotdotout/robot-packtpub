@@ -8,7 +8,7 @@ ${HOME URL}        https://www.packtpub.com/packt/offers/free-learning
 ${END URL}         https://www.packtpub.com/account/my-ebooks
 
 ${CLAIM BUTTON}    xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[4]/div[2]/a/div/input
-#${CLAIM BUTTON}    xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[5]/div[2]/a/div/input
+${CLAIM BUTTON 2}    xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[5]/div[2]/a/div/input
 ${LOGIN BUTTON}    xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[3]/input
 ${USER INPUT}      xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[1]/div/input
 ${PASS INPUT}      xpath=//*[@id="account-bar-form-login"]/div[1]/form/div/div/div[2]/div/input
@@ -41,14 +41,18 @@ Open Headless Browser
 
 Login
     [Arguments]    ${user}    ${pass}
-    Click Button   ${CLAIM BUTTON}
+    Click Claim Book
     Input Text    ${USER INPUT}     ${user}
     Input Text    ${PASS INPUT}     ${pass}
     Click Button    ${LOGIN BUTTON}
     Wait Until Page Contains    ${LOGIN DONE}
 
+Click Claim Book
+    ${status}    ${value}=     Run Keyword And Ignore Error    Click Button   ${CLAIM BUTTON}
+    Run Keyword If    '${status}'!='PASS'    Click Button     ${CLAIM BUTTON 2}
+
 Claim Book
-    Click Button   ${CLAIM BUTTON}
+    Click Claim Book
     Wait Until Page Contains    ${CLAIM DONE}
 
 Get Book Title
