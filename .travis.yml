@@ -1,16 +1,21 @@
-sudo: required
+# sudo: required
+sudo: false
 
 language: python
 
-services:
-  - docker
+# services:
+  # - docker
 
 env:
   global:
     - secure: EszaFqgXflytWS0w3QY8CnhEFpuY+Ah4zH7cDb1eYmcC2IqIQQII1eeIZXlNFeJSpzFgi/niyU0L/dRGHf+pluRyctDLGnkEROunkq5rSCYY0BaVs/JKQpClU9uksGej84Ku5ykWXGGAnzf84xI3TomdM+txK4mEZdxsUkxOA4G0MYJbQQ2th8sALqEvEzRzmPKb21tBzQURBdBspH2aZx2qAckZp7gBydVTEEAkJmLjhH4x3NaRF+I4AZlZzjI4fhmkiaJMPYF/YaIUVm2kEtvIuSW8G2lq5+N70SGE5QCyZK/huszV9YcclnkDzmglTQI27asaIVBDagTiDnpaUFMbzqynBOdQBvNadSzIIYJ1tdpX9qas5BXnakNvb1IQ9rGzAQ6QQnIB4nQ/oLkcfA0UXPJZlbEPwIro45k9jAWOrNWe9I06YVovgu5xkFoCrdACQQk2wZplYLrkXgQvg4nchzBF26lFnCFPzYoi20t5pPh49BfqX8Z0EbhdFPsCTNbBCNhqMUWcCjeUgWHF03Jb2V9DFeVp3EJXrUCoo6end/SuYGjPCNaNqLUpj/Gz9HrdLv8vQ4J5b0PM87pSgJaKUi0u4TTF9BJCfvZPrRoU1BsW7Lf3uo519Rl5V0WBpcdGQ0E08BiwFstS14AnXmzWFXpYTwlPaZAr8j24x7k=
     - secure: gIbomYwV6vGCkUrAgoAON8mfHBuwEp1rtFaYwDgTYXSbQJbIJYDIO6WJ2Kdv8B9OstMti4qk39tUeGkke90VrrIljjZLw9FfGal7llPvfTTt0vfCpjrRNqJ4doWQCU4CYF9HMKQCEzx0sFD0P++CPn5ifSF1sIosvHCzF/yw+dvfpsthJN0rPKntrx09E99VTUrg3wY82YdorOP5djWq5hOMxC8ee3mp5mXu1Dc/ZzgNjZJ3gBex5RPe5GcwFbxLRSYyi2qkdvuR/8F65cX2M4U/EpCi7EVPlvmE6ecjTAqiFAk0R1waERehc+PbdNgnxqj8tV6nH2X23VDIdTQU6Gynn3vFppwLSueQCPzVbCQR4uSTThhj+REF9exrS/iK75Zb9yd8+JH0E0j1HkYxFRsRFD01/VrQdQhb2uAvsO34ztLQ6ZRmw832Q2zCgRDeCoFllT71d5DLUgOQeUjSL6sclHM7cxaMfuZMY8NLwSw98MatRCscgU/K2y+QXfAMZ/1t89oLUG9KpwYn3/8JqWMq2ZyJBBhXq/NEV2z8Gze4l3HAemhphSeqPU4VBYciH0HVEVAcpWifnCQXLys1XGiswk13EeoXHOSsReEIfySFAYd59OJarwLtfyrx7/q6sRTfh9AnAG4xDsmkMru0eVApgjFA4lJeUbrPkIDtT4w=
 
-before_install:
-  - docker pull ibotdotout/robot-packtpub
+# Testing on Docker
+# before_install:
+  # - docker pull ibotdotout/robot-packtpub
+# script:
+  # - docker run -e USER=$USER -e PASS=$PASS --rm ibotdotout/robot-packtpub /bin/sh -c "pybot --variable USER:$USER --variable PASSWORD:$PASS --variable TIMEOUT:30 getebook_docker.txt"
+
 script:
-  - docker run -e USER=$USER -e PASS=$PASS --rm ibotdotout/robot-packtpub /bin/sh -c "pybot --variable USER:$USER --variable PASSWORD:$PASS --variable TIMEOUT:30 getebook_docker.txt"
+   - pybot --variable USER:$USER --variable PASSWORD:$PASS --variable TIMEOUT:30 getebook.txt
