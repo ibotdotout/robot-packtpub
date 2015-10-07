@@ -15,6 +15,8 @@ ${CLAIM DONE}      My eBooks
 ${WIDTH}           1920
 ${HIEGHT}          1080
 
+${TIMEOUT}        10
+
 *** Keywords ***
 Open Normal Browser
     [Arguments]    ${url}    ${browser}
@@ -33,7 +35,7 @@ Login
     Input Text    ${USER INPUT}     ${user}
     Input Text    ${PASS INPUT}     ${pass}
     Click Button    ${LOGIN BUTTON}
-    Wait Until Page Contains    ${LOGIN DONE}
+    Wait Until Page Contains    ${LOGIN DONE}    ${TIMEOUT}
 
 Click Claim Book
     ${status}    ${value}=     Run Keyword And Ignore Error    Click Button   ${CLAIM BUTTON}
@@ -41,7 +43,7 @@ Click Claim Book
 
 Claim Book
     Click Claim Book
-    Wait Until Page Contains    ${CLAIM DONE}
+    Wait Until Page Contains    ${CLAIM DONE}    ${TIMEOUT}
 
 Get Book Title
     ${book title}=    Get Text    ${BOOK TITLE}
