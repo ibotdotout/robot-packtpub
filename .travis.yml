@@ -11,6 +11,6 @@ env:
     - secure: gIbomYwV6vGCkUrAgoAON8mfHBuwEp1rtFaYwDgTYXSbQJbIJYDIO6WJ2Kdv8B9OstMti4qk39tUeGkke90VrrIljjZLw9FfGal7llPvfTTt0vfCpjrRNqJ4doWQCU4CYF9HMKQCEzx0sFD0P++CPn5ifSF1sIosvHCzF/yw+dvfpsthJN0rPKntrx09E99VTUrg3wY82YdorOP5djWq5hOMxC8ee3mp5mXu1Dc/ZzgNjZJ3gBex5RPe5GcwFbxLRSYyi2qkdvuR/8F65cX2M4U/EpCi7EVPlvmE6ecjTAqiFAk0R1waERehc+PbdNgnxqj8tV6nH2X23VDIdTQU6Gynn3vFppwLSueQCPzVbCQR4uSTThhj+REF9exrS/iK75Zb9yd8+JH0E0j1HkYxFRsRFD01/VrQdQhb2uAvsO34ztLQ6ZRmw832Q2zCgRDeCoFllT71d5DLUgOQeUjSL6sclHM7cxaMfuZMY8NLwSw98MatRCscgU/K2y+QXfAMZ/1t89oLUG9KpwYn3/8JqWMq2ZyJBBhXq/NEV2z8Gze4l3HAemhphSeqPU4VBYciH0HVEVAcpWifnCQXLys1XGiswk13EeoXHOSsReEIfySFAYd59OJarwLtfyrx7/q6sRTfh9AnAG4xDsmkMru0eVApgjFA4lJeUbrPkIDtT4w=
 
 before_install:
-  - docker build -t robot-packtpub .
+  - docker pull ibotdotout/robot-packtpub
 script:
-  - docker run -e USER=$USER -e PASS=$PASS --rm robot-packtpub /bin/sh -c "pybot --variable USER:$USER --variable PASSWORD:$PASS getebook_docker.txt"
+  - docker run -e USER=$USER -e PASS=$PASS --rm ibotdotout/robot-packtpub /bin/sh -c "pybot --variable USER:$USER --variable PASSWORD:$PASS --variable TIMEOUT:30 getebook_docker.txt"
