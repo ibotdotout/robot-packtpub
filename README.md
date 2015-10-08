@@ -30,23 +30,18 @@ $ pybot getebook.txt
 - python
 - robotframework
 - robotframework-selenium2library
-
-extend for native host:
-- phantomjs (not work well on docker)
-
-extend for docker:
-- xvfb
-- firefox
-- robotframework-xvfb
+- phantomjs 2.0
 
 ### Install Dependencies
 
 Ubuntu:
 ```sh
 # ubuntu
+# using phantomjs2.0 pre-built from https://github.com/Pyppe/phantomjs2.0-ubuntu14.04x64
 $ apt-get update
 $ apt-get install -y python-dev python-pip
-$ apt-get install -y phantomjs
+$ apt-get install -y phantomjs libicu52 wget
+$ wget https://raw.githubusercontent.com/Pyppe/phantomjs2.0-ubuntu14.04x64/master/bin/phantomjs -O /usr/bin/phantomjs && chmod +x /usr/bin/phantomjs
 $ pip install -r requirement.txt
 ```
 
