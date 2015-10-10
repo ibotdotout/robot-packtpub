@@ -12,9 +12,6 @@ ${BOOK TITLE}      xpath=//*[@id="deal-of-the-day"]/div/div/div[2]/div[2]/h2
 ${LOGIN DONE}      My Account
 ${CLAIM DONE}      My eBooks
 
-${WIDTH}           1920
-${HIEGHT}          1080
-
 ${TIMEOUT}        10
 
 *** Keywords ***
@@ -22,12 +19,6 @@ Open Normal Browser
     [Arguments]    ${url}    ${browser}
     Open Browser    ${url}    ${browser}
     Maximize Browser Window
-
-Open XVFB Browser
-    [Arguments]    ${url}    ${browser}
-    Start Virtual Display    ${WIDTH}   ${HIEGHT}
-    Open Browser    ${url}
-    Set Window Size    ${WIDTH}    ${HIEGHT}
 
 Login
     [Arguments]    ${user}    ${pass}
